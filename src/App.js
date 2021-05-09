@@ -48,7 +48,7 @@ function App() {
       <div className="App">
           <div className="container">
               <form onSubmit = {handleSubmit}>
-                  <div className="form-group w-50 m-auto city-search-form">
+                  <div className="form-group m-auto city-search-form">
                        {cities.length>6 
                        ? <h6 className="mb-3 alert alert-danger text-center">Six cities/states already there, please remove any one.</h6>
                        : <h5 className="mb-3 pb-2 text-center">You can select upto 6 cities or states to check weather updates</h5>

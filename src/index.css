@@ -17,6 +17,7 @@ code {
 
 .city-search-form {
   padding-top: 10vh;
+  width: 50%;
 }
 
 .city-search-form input {
@@ -41,7 +42,7 @@ code {
 
 .weather-card-holder {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   align-items: center;
   margin: 60px auto;
   grid-gap: 50px;
@@ -133,4 +134,11 @@ code {
   opacity: 1;
   z-index: 9;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .city-search-form {
+    padding-top: 6vh;
+    width: 75% !important;
+  }
 }
