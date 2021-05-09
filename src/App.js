@@ -20,33 +20,36 @@ function App() {
      setSelectedCity(cityRef.current.value)
   }
 
+
   useEffect(() => {
   if(selectedCity !== ''){
   async function getUserCity() {
   try {
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${app_ID}&units=metric`);
-    setCities([...cities, response.data])
+    setCities([response.data, ...cities])
     cityRef.current.value='';
     setError('')
   } catch (error) {
      setError('Please enter a valid city or state name...')
   }}
-  return getUserCity();
+  getUserCity();
   } 
+
   }, [selectedCity])
+
+
 
   const deleteItem = (item) => {
    const filteredCities= cities.filter(i => i !== item)
    setCities(filteredCities)
   }
 
-
   return (
       <div className="App">
           <div className="container">
               <form onSubmit = {handleSubmit}>
                   <div className="form-group w-50 m-auto city-search-form">
-                       {cities.length>5 
+                       {cities.length>6 
                        ? <h6 className="mb-3 alert alert-danger text-center">Six cities/states already there, please remove any one.</h6>
                        : <h5 className="mb-3 pb-2 text-center">You can select upto 6 cities or states to check weather updates</h5>
                         }

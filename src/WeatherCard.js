@@ -25,7 +25,7 @@ const WeatherCard = ({city, deleteItem}) => {
          className="weather-card-wrap"
          >
             <div className="overlay-on-card"> 
-                <button onClick={handleClick} className="remove-btn"> Remove </button>
+                <button onClick={handleClick} className="remove-btn"> x </button>
             </div>
             <div className= 'card weather-card' >
                 <h5>{name + ' , ' + sys.country}</h5>
